@@ -57,3 +57,5 @@ console.log(alphaString46()); //false
   console.log(now);
   setTimeout(printNow, 1000);
 }());
+
+console.log( === === === = );

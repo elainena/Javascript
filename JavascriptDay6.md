@@ -1,5 +1,5 @@
-<h2>Day 6</h2>   
-<h2>Chapter 1: 기본자료형 number를 위한 레퍼(wrapper)객체</h2>
+<h1>Day 6</h1>   
+<h1>Chapter 1: 기본자료형 number를 위한 레퍼(wrapper)객체</h1>
 
 ---
 
@@ -87,4 +87,67 @@
         var numObj = 15345.6789;  
         console.log(numObj.toPrecision(3));  // '1.53e+4'
 - Number.prototype.toString()
-    - 
+    - 숫자를 문자열로 변환하여 반환한다
+- Number.prototype.valueOf()
+    - Number객체의 기본자료형 값(primitive value)을 반환한다
+
+---
+
+<h1>Chapter 2: 수학 상수와 함수를 위한 built-in 객체</h1>
+
+- Math 객체는 별도의 생성자가 없는 정적 (static) 프로퍼티와 메소드이다
+
+---
+
+<h2>Math Property</h2>
+
+- Math.PI: PI값 3.14....를 반환한다
+
+---
+
+<h2>Math Method</h2>
+
+- Math.abs()
+- Math.round()
+- Math.sqrt()
+    - 양의 제곱근을 반환한다
+    - ex.  
+    Math.sqrt(9); //3
+- Math.ceil()
+    - 지정된 숫자를 자신보다 큰, 가장 가까운 정수로 올림한다
+    - ex.  
+    Math.ceil(1.4); //2
+- Math.floor()
+    - 지정된 숫자를 자신보다 작은, 가장 가까운 정수로 내림한다. 즉 소숫점 이하의 값을 제거한 정수를 취득한다
+    - ex.  
+    Math.floor(1.9); //1
+- Math.random()
+    - 0과 1 사이의 임의의 숫자를 반환한다. 이때 0은 포함되지만 1은 포함되지 않는다 (0<1)
+- Math.pow()
+    - 첫번째 인수를 밑 (base), 두번째 인수를 지수(exponent)로 하여 거듭제곱을 반환한다
+    - ex.  
+    Math.pow(7,2); //49
+- Math.max()**
+    - 인수 중 가장 큰 수를 반환한다
+    - ex.  
+    var arr = [1, 2, 3];  
+    var max = Math.max.apply(null, arr); // 3
+    - 활용도가 높다
+- Math.min()
+    - 인수 중 가장 작은 수를 반환한다
+    - ex.  
+    var arr = [1, 2, 3];  
+    var min = Math.min.apply(null, arr); // 1
+
+---
+
+<h1>Chapter 3: RegExp 정규표현식</h1>
+
+---
+
+<h2>정규표현식(Regular Expression)</h2>
+
+- 문자열에서 특정 내용을 찾거나 대체 또는 발췌하는데 사용한다
+- 정규표현식을 사용하는 자바스크립트 메소드는 RegExp.prototype.exec(), RegExp.prototype.test(), String.prototype.match(), String.prototype.replace(), String.prototype.search(), String.prototype.split()
+- 플래그: i, g, m
+- 패턴
