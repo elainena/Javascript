@@ -151,3 +151,14 @@
 - 정규표현식을 사용하는 자바스크립트 메소드는 RegExp.prototype.exec(), RegExp.prototype.test(), String.prototype.match(), String.prototype.replace(), String.prototype.search(), String.prototype.split()
 - 플래그: i, g, m
 - 패턴
+
+---
+
+<h1>Chapter 4: 배열 Array</h1>
+
+---
+
+<h2>배열의 생성</h2>
+
+- 중요한 메소드  
+ **#13, 14
