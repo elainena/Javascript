@@ -1,0 +1,156 @@
+Day3
+<Control Flow (Continued)>
+    <평가 Evaluating>
+        - 참, 거짓으로 표현되어야하는 문맥을 논리적연산으로 통해 자동으로 변환시켜주는 기능이 있다.
+            //if (i%2) 이 조건문이 목적대로 홀수로 결과값을 뽑아낼수 있게 되는 이유
+        - "암묵적 강제 형 변환"을 통해 조건식을 평가한다
+            - context(문맥)을 판단해 작업한다
+            - 의도하지 않은 값/오류를 만들어낼수있으니까 주의하고 가급적 사용하지 않는게 좋다
+            - 가독성도 좋지않다
+        - Take a look at 4.2 Type Conversion Table 
+        - Type Conversion 
+            - 함수단어가 대문자로 시작하면 "생성자 함수"이다
+            - "+" 단항 연산자는 대부분의 값을 숫자형으로 변환할수 있다
+                Example:
+                // console.log(+false)     = 0
+                // cnsole.log(+null)       = 0
+                // console.log(+undefined) = Nan
+        - Data Type Conversion 
+            - String to Number, Number to String...
+        - Checking Existence
+            - getElementById를 통해 DOM에서 특정 요소를 취득하는 경우, DOM 상에 해당 요소가 존재할 수도 있지만 존재하지 않을 가능성도 있다. 만약 취득하고자하는 요소가 존재하여 해당 요소 취득에 성공하였다면 변수 elem의 값은 HTMLElement를 상속받은 객체의 인스턴스이다. 취득하고자하는 요소가 존재하지 않아서 요소 취득에 실패하였다면 변수 elem의 값은 null이다. 이때 객체의 인스턴스는 true로 평가되며 null은 false로 평가된다.
+            
+Javascript Object(객체)
+<객체란?>
+- 자바스크립트를 이루고 있는 거의 모든것들은 객체다
+- 함수, 배열, 정규표현식 등
+- 인식가능한 모든것- 객체
+- 객체는 데이터(property)와 그 데이터에 관련되는 동작(method)(절차, 방법, 기능)을 모두 포함할 수 있는 개념적 존재이다. 
+
+[Property]
+- name & value
+- name; 빈문자열을 포함하는 문자열과 숫자 
+- value: undefined를 제외한 모든 값 
+
+[Method]
+- 함수는 객체 
+- method: 객체 내에있는 함수
+
+<객체 생성 방법>
+1. 객체 리터럴
+    - 가장 일반적이고 간편한 자바스크립트의 객체 생성 방식
+    - 중괄호({})를 사용하여 객체를 생성하는데 {} 내에 아무것도 기술하지 않으면 빈 객체가 생성된다. {} 내에 1개 이상의 프로퍼티 이름(Property name): 프로퍼티 값(Property value)을 기술하면 해당 프로퍼티가 추가된 객체를 생성할 수 있다.
+    - 조건문과 다르게 빈객체도 true이다
+2. Object () 생성자 함수
+    - javascript에 빌트인 되어있다
+    - new 연산자와 Object()사용
+    - 객체를 생성하는 함수
+        Example
+            //var person = new Object();
+                // 프로퍼티 추가
+            //person.name = 'Lee';
+            //person.gender = 'male';
+3. 생성자 함수
+    - 빌트인 되어있는 object생성자 함수와 다르게 개발자가 만드는것
+    - 앞 두개 함수방식은 유사한 여러 객체 생성에 적합하지 않다
+    - this -> 이 생성자 함수가 생성할 객체 자신을 가르킨다
+        - 객체를 여러개 만들거라는 암시
+        Example
+        // 생성자 함수
+            function Person(name(매개변수-> 함수에서 호출해서 값을 준다), gender) {
+                this.name = name;
+                this.gender = gender;
+                this.sayHello = function(){
+                    console.log('Hi! My name is ' + this.name);
+                };
+            }
+
+        // 인스턴스의 생성
+            var person1 = new Person('Lee', 'male');
+            var person2 = new Person('Kim', 'female');
+    -틀은 갖고있되 데이터만 각각 바꿔줄수있다
+
+- 어떤때에 어떤 방법을 쓸지 구분해야한다.
+
+<객체 프로퍼티 접근>
+    [프로퍼티 이름]
+        - 프로퍼티 이름은 문자열이므로 따옴표 ('/")를 사용한다
+        - 자바스크립트에서 사용가능한 이름인 경우 따옴표 생략할수있다
+    [프로퍼티 값 읽기]
+        - 마침법(.), 대괄호 ([]) 표기법
+        - 대괄호 내에 들어가는 프로퍼티 이름은 반드시 문자열이어야 한다
+    [프로퍼티 값 갱신]
+        - 객체가 소유하고 있는 프로퍼티에 새로운 값을 할당하면 프로퍼티 값은 갱신된다
+    [프로퍼티 동적 생성]
+        - 객체가 소유하고 있지 않은 프로퍼티에 값을 할당하면 해당 프로퍼티를 개체에 추가하고 값을 할당하다
+        - Heap에서 관리
+    [프로퍼티 삭제]
+        - delete 
+        - 사용할일이 거의 없다
+    [for-in 문]
+        - 
+
+<Pass-by-reference>
+- side-effect가 있는건 비순수 함수
+-      "       없는건 순수함수
+- 순수함수를 지향한다
+
+<Pass-by-value>
+
+<객체의 분류]
+- 모든것이 객체인중에 구별하기위해 객체/인스턴스로 구별한다
+- 인스턴스(instance): 생성자 함수로 생성해 낸 객체
+    - 객체인데 방근 만들어진 결과
+- Object> Built-in Object, Host Object
+- Built-in Object > Standard Built-in Object, Native Object
+- Native Object> BOM(Browswer Object Model), DOM(Document Object Model)
+
+Javascript Function (함수)
+- 함수란 어떤 특정 작업을 수행하기 위해 필요한 일련의 구문들을 그룹화하기 위한 개념이다. 만일 스크립트의 다른 부분에서도 동일한 작업을 반복적으로 수행해야 한다면 (동일한 구문을 계속해서 반복 작성하는 것이 아니라) 미리 작성된 함수를 재사용할 수 있다.(코드의 재사용)
+
+<함수 정의>
+함수를 정의하는데에 3가지 방식이 있다:
+1. 함수 선언식 (function declaration)
+    - 함수선언식을 사용한 함수 정의는 function 키워드와 이하의 내용으로 구성된다.
+    - 함수명, 매개변수 목록, 함수 몸체
+
+2. 함수 표현식 (function expression)
+    - 일급객체란 값으로 칠수있다
+3. Function()생성자 함수
+
+- 함수몸체-> 코드블록
+
+<변수 호이스팅>***
+원래 단계
+- 한줄한줄 읽기전 한번 훝으면서 변수 이름을 일단 실행컨텍스트에 적어놓는다-> 선언단계 declaration (메모리를 건들지 않은상태)
+- 메모리로 가서 필요한 메모리를 확보하기위해 undefined로 값을 박는다->초기화단계 initialization
+- 할당 단계 
+자바스크립트
+- 위에 첫번째와 두번째를 한번에 실행한다음 세번째를 실행한다
+- 할당문이 오기전엔 항상 undefined
+<함수 호이스팅>
+- 1~3단계 한번에 한다
+- 함수 선언식에서만 유효
+- 함수표현식은 변수 호이스팅을 따른다
+
+<매개변수>
+- Parameter
+- 매개변수 (인자) vs 인수(argument)
+    - 호출할때 넣는 할당 값은 '인수'
+    - 그 할당값이 들어갈 매개변수는 '인자'라한다
+- Call-by-value
+    - 
+
+<함수 객체의 프로퍼티>
+- 가변인자함수
+- caller 프로퍼티
+    - 자신을 호출한 함수를 의미한다
+- length 프로퍼티
+    - 함수 정의 시 작성된 매개변수 객수를 의미한다
+- name 프로퍼티
+- __proto__프로퍼티
+    - 모든 객체가 가지고잇는 프로토타입
+    - 자신의 부모역할을 할 객체를 가르킨다
+    - person.prototype
+    - 종점이 있다
+    - 종점은 object.prototype

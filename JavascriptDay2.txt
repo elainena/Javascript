@@ -46,4 +46,4 @@ Chapter1: Javascript Data Type & Variable (자료형)
     - b와 a가 같은값의 주소를 share하는게 아니라 가르키는 주소는 다르지만 같은값을 갖는다는 뜻.
 
 [객체형 (Object type, 참조형)]
-- 
+-
