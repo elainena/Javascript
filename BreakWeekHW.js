@@ -46,13 +46,13 @@ console.log(checkPalindrom('palindrom')); // false
 console.log(checkPalindrom('s')); // false */
 
 function checkPalindrom(str) {
-  var pal = str.split("").reverse().join("");
-  for (var i = 0; i > 1; i++) {
-    if (pal === str) {
-      return true;
-    }
-    return false;
+  var x = str.replace(x, '');
+
+  var n = x.split('').reverse().join('');
+  if (n === x) {
+    return true;
   }
+  return false;
 }
 
 
@@ -60,3 +60,16 @@ console.log(checkPalindrom('dad'));
 console.log(checkPalindrom('mom'));
 console.log(checkPalindrom('palindrom'));
 console.log(checkPalindrom('s'));
+
+/*11. 배열의 최대/최소값 구하기
+배열의 요소 중 최대값/최소값을 반환하는 함수를 완성하라.*/
+
+function getMaxValueFromArray(array) {
+
+}
+console.log(getMaxValueFromArray([3, 6, -2, -5, 7, 3])); // 7
+
+function getMinValueFromArray(array) {
+
+}
+console.log(getMinValueFromArray([3, 6, -2, -5, 7, 3])); // -5
