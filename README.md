@@ -14,5 +14,5 @@
 4. Javascript Prototype continued Scope, this
 5. Javascript Built-in Object, Standard Built-in Objects, String, Date  
 6. Javascript Number, Math, RegExp, Array  
-7. Javascript Array continued, Execution Context, Closure     
-
+7. Javascript Execution Context, Closure       
+8. Javascript Array continued
