@@ -24,15 +24,12 @@
       if (e.keyCode !== 13) return;
       if (this.value) {
         console.log(this.value);
-        todoList.innerHTML = '<li>' + this.value + '</li>';
+        todoList.innerHTML += '<li>' + this.value + '</li>';
       }
     });
 
     todoList.addEventListener('click', function(e) {
 
-      //   if (e.target.onclick) {
-      //     e.target.parentNode.removeChild(e.target);
-      //   }
       var listItems = document.querySelectorAll("li");
 
       for (var i = 0; i < listItems.length; i++) {
