@@ -80,16 +80,20 @@ console.log(todos);
 //   { id: 2, content: 'CSS', completed: true },
 //   { id: 1, content: 'Javascript', completed: false }
 // ];
+//   if (todo.id === 3) {
+//     return Object.assign({}, todo, { completed: !todo.completed }) // 뒤에 있는 객체를 그 바로 앞에있는 객체와 merge된다
+//   } else {
+//     return todo;
+//   }
+function toggleCompletedById(id) {
+  todos = todos.map(function(todo) {
+    return todo.id === id ? Object.assign({}, todo, { completed: !todo.completed }) : todo;
+  });
+}
 
+toggleCompletedById(3);
+console.log(todos);
 
-todos = todos.map(function(todo) {
-  //   if (todo.id === 3) {
-  //     return Object.assign({}, todo, { completed: !todo.completed }) // 뒤에 있는 객체를 그 바로 앞에있는 객체와 merge된다
-  //   } else {
-  //     return todo;
-  //   }
-  return todo.id === 3 ? Object.assign({}, todo, { completed: !todo.completed }) : todo;
-});
 // 6. todos에서 모든 요소의 completed 프로퍼티 값을 true로 설정하는 함수를 작성하라
 // todos = [
 //   { id: 3, content: 'HTML', completed: true },
@@ -101,4 +105,13 @@ function getTrue() {
     return Object.assign({}, todo, { completed: true });
   })
 }
+getTrue();
+console.log(todos);
 // 7. todos에서 완료(completed: true)한 할일의 갯수를 구하는 함수를 작성하라
+function countCompletedTodos() {
+  return todos.filter(function(todo) {
+    return todo.completed;
+  }).length;
+}
+
+console.log(countCompletedTodos());
