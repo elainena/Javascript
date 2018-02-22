@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel = "stylesheet" href = "http://poiemaweb.com/assets/css/ajax.css">
+</head>
+<body>
+    <div id = "content"></div>
+    <script>
+    //XMLHttpRFequest 객체의 생성
+    var req = new XMLHttpRequest();
+    //비동기 방식으로 Request를 오픈한다
+    req.open('GET', 'data/data.html');
+    //Request를 전송한다
+    req.send();
+
+    //Event Handler
+    req.onreadystatechange = function() {
+        //서버 응답 완료 && 정상 응답
+        if (req.readyState === XMLHttpRequest.DONE) {
+            if (req.status === 200) {
+                console.log (req.responseText);
+
+                document.getElementById('content').innerHTML = req.responseText;
+
+                //document.getElementByID('content').insertAdjacentHTML('beforeend', req.responseText);
+            } else {
+                console.log ('[' + req.status + ']:' + req.statusText);
+            }
+        }
+    };
+    </script>
+</body>
+</html>
