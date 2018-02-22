@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Todos V0</title>
+  <style>
+    body {
+      width: 500px;
+      margin: 0 auto;
+      text-align: center;
+    }
+
+    #input-todo {
+      padding-top: 30px;
+      width: 500px;
+      height: 60px;
+      font-size: 40px;
+      border: 0;
+    }
+
+    #input-todo:focus {
+      outline: none;
+    }
+
+    li {
+      text-align: left;
+      font-size: 20px;
+      list-style: none;
+      margin: 0;
+    }
+
+    /* li:hover {
+      text-decoration: line-through;
+    } */
+  </style>
+</head>
+
+<body>
+  <input id="input-todo" placeholder="What needs to be done?" autofocus>
+  <ul id="todo-list"></ul>
+
+  <script>
+    var todos = [];
+    var inputTodo = document.querySelector('#input-todo');
+    var todoList = document.querySelector('#todo-list');
+
+    // todos 배열을 html로 변환한다.
+    function renderTodos() {
+      if (!todos.length) {
+        todoList.innerHTML = '';
+        return;
+      }
+
+      var html = '';
+
+      todos.forEach(function (todo) {
+        var checked = todo.completed ? 'checked' : '';
+
+        html += '<li id="' + todo.id + '">';
+        html += '<input type="checkbox"' + checked + '>'
+        html += todo.content;
+        html += ' &nbsp <button>X</button>';
+        html += '</li>';
+
+        todoList.innerHTML = html;
+      });
+    }
+
+    // 새롭게 추가될 todo의 id를 생성한다.
+    function generateId() {
+      return todos.lenth ? Math.max.apply(null, todos.map(function (todo) {
+        return todo.id;
+      })) + 1 : 1;
+    }
+
+    // 새로운 todo를 todos에 추가한다.
+    function addTodo(content) {
+      todos = todos.concat({ id: generateId(), content: content, completed: false });
+      console.log('[ADD TODO] ', todos);
+    }
+
+    // 인자로 주어진 id에 해당하는 todo의 completed를 반전한다
+    function toggleCompletedById(id) {
+      todos = todos.map(function (todo) {
+        return todo.id === +id ? Object.assign({}, todo, { completed: !todo.completed }) : todo;
+      });
+      console.log('[TOGGLE TODO] ', todos);
+    }
+
+    // 인자로 주어진 id에 해당하는 todo를 todos에서 제거한다.
+    function removeTodoById(id) {
+      todos = todos.filter(function (todo) {
+        return todo.id !== +id;
+      });
+      console.log('[REMOVE TODO] ', todos);
+    }
+
+    // input 태그에 할일을 입력한 상태에서 엔터를 keyup하면 할일을 추가한다.
+    inputTodo.addEventListener('keyup', function (e) {
+      var content = this.value;
+
+      if (e.keyCode !== 13 || !content) return;
+
+      addTodo(content);
+      renderTodos();
+      this.value = '';
+    });
+
+    // 1. li 요소를 클릭하면 todo.completed를 토글한다.
+    // 2. 삭제 버튼을 클릭하면 해당 todo를 제거한다.
+    todoList.addEventListener('click', function (e) {
+      if (e.target && e.target.nodeName === 'LI') {
+        toggleCompletedById(e.target.id);
+      } else if (e.target && e.target.nodeName === 'BUTTON') {
+        removeTodoById(e.target.parentNode.id);
+      }
+
+      renderTodos();
+    });
+
+    // 애플리케이션이 로드되면 서버로 부터 todos 데이터를 취득한다.(잠정 처리)
+    window.addEventListener('load', function () {
+      todos = [
+        { id: 1, content: 'HTML', completed: false },
+        { id: 2, content: 'CSS', completed: true },
+        { id: 3, content: 'Javascript', completed: false }
+      ];
+
+      renderTodos();
+    });
+  </script>
+</body>
+
+</html>
