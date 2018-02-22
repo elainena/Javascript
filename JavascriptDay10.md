@@ -117,4 +117,36 @@ XMLHttpRequest.open(method, url[, async])
 
 <h3>XMLHttpRequest.send</h3>
 
+- XMLHttpRequest.send메소드로 준비된 요청을 서버에 전달한다
+- 기본적으로 서버로 전송하는 데이터는 GET, POST 메소드에 따라 그 전송방식에 차이가 있다
+    1. **GET** 메소드의 경우, URL의 일부분인 쿼리문자열 (query string)로 데이터를 서버로 전송한다
+    2. **POST** 메소드의 경우, 데이터 (페이로드)를 Request Body에 담아 전송한다
+- XMLHttpRequest.send 메소드에는 request body에 담아 전송할 인수를 전달할 수 있다
+- 만약 요청 메소드가 GET인 경우, send 메소드의 인수는 무시되고 request body는 null로 설정된다
+
+<h3>XMLHttpRequest.setRequestHeader</h3> 
+
+- XMLHttpRequest.setReqeuestHeader 메소드는 HTTP Request Header의 값을 설정한다
+- setRequestHeader 메소드는 반드시 XMLHttpRequest.open 메소드 호출 이후에 호출한다
+- Content-type
+    - Content-type은 request body에 담아 전송할 데이터의 MIME-type의 정보를 표현한다
+    - 자주 사용되는 MIME-type:
+
+    ![](./img/MIME-type.png)
+- Accept
+    - HTTP 클라이언트가 서버에 요펑할 때 서버가 샌드백할 데이터의 MIME-type을 Accept로 지정 할 수 있다
+
+    ```js
+    // 서버가 센드백할 데이터의 MIME-type 지정: json
+    
+    req.setRequestHeader('Accept', 'application/json');
+    ```
+    - 만약 Accept헤더를 설정하지 않으면, send메소드가 호출될때 Accept헤더가 */*(어떤 포맷으로 받아도 괜찮다는 뜻)으로 전송된다 
+
+<h3>Ajax response</h3>
+
 - 
+
+<h1>Qs</h1>
+
+1. GET과 POST의 차이는?
