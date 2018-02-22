@@ -16,4 +16,5 @@
 6. Javascript Number, Math, RegExp, Array  
 7. Javascript Execution Context, Closure       
 8. Javascript Array continued, TodoAppv0 Practice  
+9. Javascript AJAX and REST API  
 
