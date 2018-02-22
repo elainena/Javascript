@@ -109,4 +109,12 @@ xhr.send();
 
 <h3>XMLHttpRequest.open</h3>
 
+- XMLHttpRequest객체의 인스턴스를 생성하고 XMLHttpRequest.open 메소드를 사용하여 서버로의 요청을 준비한다
+```js
+XMLHttpRequest.open(method, url[, async])
+```
+![](./img/XMLHttpRequest.open.png)
+
+<h3>XMLHttpRequest.send</h3>
+
 - 
