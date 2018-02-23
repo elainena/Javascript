@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel = "stylesheet" href = "http://poiemaweb.com/assets/css/ajax.css">
+</head>
+<body>
+    <div id = "content"></div>
+    <script>
+        //XMLHttpRequest 객체의 생성
+        var req = new XMLHttpRequest();
+
+        //비동기 방식으로 Request를 오픈한다
+        req.open('GET', 'data/data.json');
+        //Request를 전송한다
+        req.send();
+
+        req.onreadystatechange = function() {
+            //서버 응답 완료 && 정상 응답
+            if (req.readystate === XMLHttpRequest.DONE){
+                if (req.status === 200) {
+                    console.log (req.responseText);
+
+                    //Deserializing (String -> Object)
+                    responseObject = JSON.parse(req.responseText);
+
+                    //JSON -> HTML String
+                    var newContent = '';
+                    newContent += '<div id = "tours" >';
+                    newContent += '<h1> Guided Tours </h1>';
+                    newContent += '<ul>';
+
+                    
+                }
+            }
+        }
+    </script>
+</body>
+</html>
