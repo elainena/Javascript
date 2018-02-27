@@ -88,4 +88,7 @@ req.onreadystatechange = function (e) {
     # good
     DELETE /books/1
     ```
-  
+- POST는 성공여부 확인할때 201이다 
+
+# Qs
+1. POST와 PUT의 차이
