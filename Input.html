@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>더하기 결과 확인</title>
+    <style></style>
+</head>
+<body>
+    <p>더하기 결과 확인</p>
+    <div>
+        <input type = "text" name = "a"> + 
+        <input type = "text" name = "b"> =
+        <input type = "text" name = "result">
+    </div>
+    <input type = "button" value = "확인">
+    <script>
+    (function(){
+        document.querySelector('input[type = button]').addEventListener('click', function(){
+        var a = docuemnt.querySelector('input[name = a]').value*1;
+        var b = document.querySelector('input[name=b]')
+        })
+    })
+    </script>
+</body>
+</html>
