@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Checkbox</title>
+</head>
+<body>
+    <p>Checked된 checkbox의 수를 alertㅇ로 표시하는 버튼과 모든 체크박스를 on/off로 토글하는 버튼</p>
+    <div class = 'list'>
+        <ul class = 'option-list'></ul>
+    </div>
+    <div class="row" style="margin-top: 20px;">
+        <h3>약관 동의가 체크되지 않았을 때, alert으로 약관 동의를 요구</h3>
+        <div class="exam-2">
+            <div class="panel panel-default">
+                <div class="panel-body">
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ex officiis necessitatibus voluptate quae perspiciatis
+                        voluptatem iste placeat rem molestias! Ipsam temporibus id vitae, sed voluptate deleniti totam incidunt
+                        et nobis?</p>
+                    <div class="checkbox">
+                        <label>
+                            <input type="checkbox">약관 동의
+                        </label>
+                    </div>
+                </div>
+            </div>
+            <div class="panel panel-default">
+                <div class="panel-body">
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ex officiis necessitatibus voluptate quae perspiciatis
+                        voluptatem iste placeat rem molestias! Ipsam temporibus id vitae, sed voluptate deleniti totam incidunt
+                        et nobis?</p>
+                    <div class="checkbox">
+                        <label>
+                            <input type="checkbox">약관 동의
+                        </label>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <button id="agree-all" class="btn btn-default">모두 동의</button>
+        <button id="confirm" class="btn btn-default">확인</button>
+    </div>
+    </div>
+
+    <script>
+    var options = [];
+    var list = document.querySelector('.option-list');
+
+    
+    function renderoptions() {
+        if (!options.length) {
+            list.innerHTML = '';
+            return;
+        }
+
+        var html = '';
+
+        options.forEach(function (option) {
+            var checked = option.completed ? 'checked' : '';
+
+            html += '<li id="' + todo.id + '">';
+            html += '<input type="checkbox"' + checked + '>'
+            html += todo.content;
+            html += '</li>';
+
+            list.innerHTML = html;
+        });
+    }
+
+    window.addEventListener('load', function(e){
+        options = [{id = 1, content = 'Option 1', completed = false},
+                    {id = 2, content = 'Option 2', completed = false},
+                    {id = 3, content = 'Option 3', completed = false}
+                    ];
+        renderoptions();
+    })
+    </script>
+</body>
+</html>
