@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Hover</title>
+    <style>
+        *
+        .box {
+            width: 100px;
+            height: 100px;
+            background-color: red;
+            margin: 0, auto;
+            position:absolute;
+            transform:translate(-50%, -50%);
+        }
+    </style>
+</head>
+<body>
+    <div class = "box"></div>
+    <script>
+    (function(){
+        var box = document.querySelectorAll('.box');
+
+        box.addEventListener('mouseover', function(){
+            this.style.backgroundColor = 'blue';
+        })
+        box.addEventListener('mouseout', function () {
+            this.style.backgroundColor = 'red';
+        })
+    })
+    </script>
+</body>
+</html>
