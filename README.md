@@ -19,5 +19,6 @@
 9. Day 9: Javascript Array continued, TodoAppV0 Practice  
 10. Day 10: Javascript AJAX and TodoV0 Practice  
 11. Day 11: AJAX continued, REST API, and TodoV0 Practice  
+12. Day 12: let, const, Template literals, and Arrow function  
 13. Day 13: ES6 Extended Parameter Handler, Enhanced Object Property, Destructuring, and Class  
   
